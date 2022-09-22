@@ -17,7 +17,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-
 @RequestMapping("/jeeps")
 @OpenAPIDefinition(info = @Info(title = "Jeep Sales Service"), servers = {
     @Server(url = "http://localhost:8080", description = "Local server.")})
@@ -58,7 +57,6 @@ public interface JeepSalesController {
               description = "The trim level (i.e., 'Sport')")
       }
   )
-  
   @GetMapping
   @ResponseStatus(code = HttpStatus.OK)
   List<Jeep> fetchJeeps(@RequestParam(required = false) String model, 

@@ -4,7 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-//(scanBasePackageClasses = {"com.promineo.jeep"})
 public class JeepSales {
 
   public static void main(String[] args) {
