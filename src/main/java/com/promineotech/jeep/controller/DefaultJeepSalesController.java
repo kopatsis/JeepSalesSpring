@@ -1,4 +1,4 @@
-package com.promineo.jeep.controller;
+package com.promineotech.jeep.controller;
 
 import java.util.List;
 import org.springframework.web.bind.annotation.RestController;

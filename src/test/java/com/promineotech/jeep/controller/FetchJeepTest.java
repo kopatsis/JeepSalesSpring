@@ -27,10 +27,7 @@ import org.springframework.http.HttpStatus;
     config = @SqlConfig(encoding = "utf-8"))
 class FetchJeepTest {
 
-  @Autowired
-  private TestRestTemplate restTemplate;
-  @LocalServerPort
-  private int serverPort;
+  @Test
   void testThatJeepsAreReturnedWhenAValidModelAndTrimAreSupplied() {
     JeepModel model = JeepModel.WRANGLER;
     String trim = "Sport";
@@ -40,5 +37,10 @@ class FetchJeepTest {
         new ParameterizedTypeReference<>() {});
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
   }
+  
+  @Autowired
+  private TestRestTemplate restTemplate;
+  @LocalServerPort
+  private int serverPort;
 
 }

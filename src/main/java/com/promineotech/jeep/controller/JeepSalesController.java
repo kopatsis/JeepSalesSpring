@@ -1,4 +1,4 @@
-package com.promineo.jeep.controller;
+package com.promineotech.jeep.controller;
 
 import java.util.List;
 import org.springframework.http.HttpStatus;
@@ -55,7 +55,7 @@ public interface JeepSalesController {
               name = "trim",
               allowEmptyValue = false,
               required = false,
-              description = "The trime level (i.e., 'Sport')")
+              description = "The trim level (i.e., 'Sport')")
       }
   )
   
