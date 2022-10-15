@@ -28,6 +28,11 @@ import org.springframework.http.HttpStatus;
     config = @SqlConfig(encoding = "utf-8"))
 class FetchJeepTest {
 
+  @Autowired
+  private TestRestTemplate restTemplate;
+  @LocalServerPort
+  private int serverPort;
+  
   @Test
   void testThatJeepsAreReturnedWhenAValidModelAndTrimAreSupplied() {
     JeepModel model = JeepModel.WRANGLER;
@@ -39,13 +44,14 @@ class FetchJeepTest {
     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     
     List<Jeep> expected = buildExpected();
-    System.out.println(expected);
+    //System.out.println(expected);
     assertThat(response.getBody()).isEqualTo(expected);
   }
   
   protected List<Jeep> buildExpected() {
     List<Jeep> list = new LinkedList<>();
-  
+    
+    // @formatter:off
     list.add(Jeep.builder()
         .modelId(JeepModel.WRANGLER)
         .trimLevel("Sport")
@@ -61,13 +67,9 @@ class FetchJeepTest {
         .wheelSize(17)
         .basePrice(new BigDecimal("31975.00"))
         .build());
+    // @formatter:on
     
     return list;
   }
-
-  @Autowired
-  private TestRestTemplate restTemplate;
-  @LocalServerPort
-  private int serverPort;
 
 }
